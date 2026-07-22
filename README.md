@@ -1,7 +1,10 @@
 # consultorio-odontologico-Base-Datos
 Resultado prompt caso estudio:
+
 prompt:
+
 Generame un  caso de estudio de un consultorio odontologico , que permita usarla como contexto para realizar un modelo entidad-relacion
+
 
 resultado:
 
