@@ -143,5 +143,3 @@ Puedes construir tu modelo con estas entidades:
 * Factura **1:N** Pago
 * Asistente **1:N** Cita
 
-
-Solo dime 👍
