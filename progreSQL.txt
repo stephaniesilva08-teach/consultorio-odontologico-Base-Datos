@@ -1,0 +1,95 @@
+﻿create database consultorio;
+
+create table patient(
+id_patient SERIAL primary key,
+name_patient Varchar(150) not null,
+identify_card Varchar(20) not null unique,
+document_date date not null,
+telephone Varchar(20) not null unique,
+address Varchar(150) not null,
+email Varchar(150) not null unique
+);
+
+create table medical_history(
+id_medical_history SERIAL primary key,
+diagnosis Varchar(150) not null,
+remarks Varchar(150) not null,
+registration_date Varchar(150) not null,
+id_patient integer,
+constraint id_patient_fk
+foreign key (id_patient) references patient(id_patient),
+constraint patientid_uq unique(id_patient)
+);
+
+create table dentist(
+id_dentist SERIAL primary key,
+name_dentist Varchar(150) not null,
+specialty Varchar(150) not null,
+telephone_dentist Varchar(20) not null unique,
+email_dentist Varchar(150) not null unique
+);
+
+create table appointment(
+id_appointment SERIAL primary key,
+date_completed timestamp not null,
+status_appointment Varchar(150) not null,
+id_patient integer,
+id_dentist integer,
+
+constraint id_patient_fk
+foreign key (id_patient) references patient(id_patient),
+
+
+constraint id_dentist_fk 
+foreign key (id_dentist) references dentist(id_dentist)
+);
+
+create table asistent(
+id_asistent SERIAL primary key,
+name_asistent Varchar(150) not null,
+telephone_asistent Varchar(20) not null unique
+);
+
+create table treatment(
+id_treatment SERIAL primary key,
+name_treatment Varchar(150) not null,
+description Varchar(150) not null,
+cost decimal(10,2) not null
+);
+
+create table treatment_appointment(
+id_treatment_appointment SERIAL primary key,
+id_appointment integer,
+id_treatment integer,
+
+constraint id_appointment_fk
+foreign key (id_appointment) references appointment(id_appointment),
+
+constraint id_treatment_fk
+foreign key (id_treatment) references treatment(id_treatment)
+);
+
+create table invoice(
+id_invoice SERIAL primary key,
+date_invoice timestamp not null,
+total_invoice decimal(10,2) not null,
+status_invoice Varchar(150) not null,
+id_appointment integer,
+
+constraint id_appointment_fk
+foreign key (id_appointment) references appointment (id_appointment)
+);
+
+create table payment(
+id_payment SERIAL primary key,
+method Varchar(150) not null,
+amount decimal(10,2) not null,
+date_payment timestamp not null,
+id_invoice integer,
+
+constraint id_invoice_fk
+foreign key (id_invoice) references invoice(id_invoice)
+
+);
+
+
