@@ -92,4 +92,5 @@ foreign key (id_invoice) references invoice(id_invoice)
 
 );
 
+drop table asistent 
 
