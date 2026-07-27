@@ -32,11 +32,6 @@ El objetivo del sistema es **gestionar pacientes, citas, tratamientos, pagos e h
    * Atienden múltiples pacientes.
    * Pueden realizar diferentes tratamientos.
 
-3. **Asistentes**
-
-   * Apoyan a los odontólogos.
-   * Se asignan a citas específicas.
-
 ---
 
 ## 📅 Gestión de Citas
@@ -52,7 +47,6 @@ El objetivo del sistema es **gestionar pacientes, citas, tratamientos, pagos e h
 
   * Un paciente puede tener muchas citas.
   * Una cita es atendida por un odontólogo.
-  * Una cita puede tener un asistente asignado.
 
 ---
 
@@ -124,7 +118,6 @@ Puedes construir tu modelo con estas entidades:
 
 * Paciente
 * Odontólogo
-* Asistente
 * Cita
 * Tratamiento
 * Historial Clínico
@@ -141,5 +134,4 @@ Puedes construir tu modelo con estas entidades:
 * Paciente **1:1** Historial Clínico
 * Cita **1:1** Factura
 * Factura **1:N** Pago
-* Asistente **1:N** Cita
 
